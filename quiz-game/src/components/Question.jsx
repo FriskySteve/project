@@ -11,7 +11,6 @@ const Question = () => {
   function handleAnswer(questionAnswer) {
     setQuestionAnswers((prev) => [...prev, questionAnswer]);
     setCurrentQuestionIndex(currentQuestionIndex + 1);
-    console.log(questionAnswers);
   }
 
   if (currentQuestionIndex === questions.length) {

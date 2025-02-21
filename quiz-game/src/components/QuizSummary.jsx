@@ -20,7 +20,19 @@ const QuizSummary = ({ questionAnswers }) => {
       </div>
       <div>
         {QUESTIONS.map((question, index) => (
-          <p key={index}>{question.text}</p>
+          <div key={index} style={{ display: "flex", flexDirection: "column" }}>
+            <p>
+              Pytanie {index + 1}: {question.text}
+            </p>
+            <p
+              style={{
+                color: questionAnswers[index].isCorrect ? "#00ff00" : "#FF9494",
+              }}
+            >
+              <b style={{ color: "#000" }}>Twoja odpowiedź:</b>{" "}
+              {questionAnswers[index].text}
+            </p>
+          </div>
         ))}
       </div>
     </div>
