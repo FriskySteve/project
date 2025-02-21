@@ -11,23 +11,25 @@ const Question = () => {
   function handleAnswer(questionAnswer) {
     setQuestionAnswers((prev) => [...prev, questionAnswer]);
     setCurrentQuestionIndex(currentQuestionIndex + 1);
+    console.log(questionAnswers);
   }
 
   if (currentQuestionIndex === questions.length) {
-    return <QuizSummary />;
+    return <QuizSummary questionAnswers={questionAnswers} />;
   } else {
     return (
       <div>
         <h2 style={{ color: "#87cefa" }}>
-          Pytanie {currentQuestionIndex + 1}{" "}
+          Pytanie {currentQuestionIndex + 1}
+          {": "}
           {questions[currentQuestionIndex].text}
         </h2>
         <ul style={{ gap: 10 }}>
-          {questions[currentQuestionIndex].answers.map((question, index) => (
+          {questions[currentQuestionIndex].answers.map((answer, index) => (
             <li key={index}>
               <Button
-                label={question.text}
-                onClick={handleAnswer}
+                label={answer.text}
+                onClick={() => handleAnswer(answer)}
                 style={{ backgroundColor: "#000", color: "#fff" }}
               />
             </li>
