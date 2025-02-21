@@ -19,6 +19,6 @@ li button {
   color: "#fff";
 }
 div > button {
-  background-color: blue;
+  /* background-color: blue; */
   color: #fff;
 }
